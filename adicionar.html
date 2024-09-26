@@ -11,14 +11,19 @@
     <div class="container">
         <div id="form-container" class="hidden">
             <form id="book-form">
-                <input type="number" id="id" placeholder="Id" required>
-                <input type="text" id="title" placeholder="Título" required>
-                <input type="text" id="author" placeholder="Autor" required>
-                <input type="number" id="year" placeholder="Ano" required>
-                <input type="text" id="genero" placeholder="Gênero" required>
-                <button type="submit">Adicionar Livro</button>
+                <input type="number" id="id" placeholder="Id" />
+                <input type="text" id="titulo" placeholder="Título" />
+                <input type="text" id="autor" placeholder="Autor" />
+                <input type="number" id="ano_pub" placeholder="Ano" />
+                <input type="text" id="genero" placeholder="Gênero" />
+                <button type="submit" class="btnAdd">Adicionar Livro</button>
             </form>
         </div>
+        <div id="form-container" class="hidden">
+            <a href="index.html" class="button">Voltar</a>
+        </div>
+        <div id="listaLivros"></div>
     </div>
+    <script src="main.js"></script>
 </body>
 </html>

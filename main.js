@@ -1,51 +1,63 @@
-class Livro{
-    constructor(id, titulo, autor, ano_pub, genero){
-        this.id = id
+class Livro {
+    constructor(id, titulo, autor, ano_pub, genero) {
+        this.id = id;
         this.titulo = titulo;
         this.autor = autor;
         this.ano_pub = ano_pub;
-        this.genero = genero
-        console.log("Novo livro adicionado!")
+        this.genero = genero;
+        console.log("Novo livro adicionado!");
     }
 
-    exibirInformacoes(){
-        console.log(`id: ${this.id}`);
-        console.log(`titulo: ${this.titulo}`);
-        console.log(`autor: ${this.autor}`);
-        console.log(`ano_pub: ${this.ano_pub}`);
-        console.log(`genero: ${this.genero}`);
+    exibirInformacoes() {
+        return `ID: ${this.id}, Título: ${this.titulo}, Autor: ${this.autor}, Ano: ${this.ano_pub}, Gênero: ${this.genero}`;
     }
 }
 
-class Biblioteca{
+class Biblioteca {
     constructor() {
-        this.livros = []
+        this.livros = [];
     }
-    adicionarLivro(livro){
+
+    adicionarLivro(livro) {
         this.livros.push(livro);
+        // this.exibirLivros();
     }
-    removerLivro(id){
+
+    removerLivro(id) {
         this.livros = this.livros.filter(livro => livro.id !== id);
         console.log(`Livro com ID ${id} removido.`);
+        // this.exibirLivros();
     }
-    exibirLivros(){
-        this.livros.forEach(livro => livro.exibirInformacoes());
+
+    exibirLivros() {
+        const lista = document.getElementById("listaLivros");
+        lista.innerHTML = ""; 
+        this.livros.forEach(livro => {
+            const div = document.createElement('div'); 
+            div.textContent = livro.exibirInformacoes();
+            lista.appendChild(div);
+        });
     }
 }
 
-let biblioteca = new Biblioteca();
-let livro1 = new Livro(1, "A Seleção", "Kiera Cass", 2012, "Romance");
-biblioteca.adicionarLivro(livro1);
+document.addEventListener("DOMContentLoaded", () => {
+    const biblioteca = new Biblioteca();
+    let idCounter = 1;
 
-let livro2 = new Livro(2, "Diário da Anne Frank", "Anne Frank", 1947, "Autobioagrafia");
-biblioteca.adicionarLivro(livro2);
+    const btnAdd = document.querySelector(".btnAdd");
+    btnAdd.addEventListener("click", () => {
+        const id = parseInt(document.getElementById("id").value);
+        const titulo = document.getElementById("titulo").value;
+        const autor = document.getElementById("autor").value;
+        const ano_pub = parseInt(document.getElementById("ano_pub").value);
+        const genero = document.getElementById("genero").value;
 
-
-console.log("Livros na biblioteca:");
-biblioteca.exibirLivros();
-
-biblioteca.removerLivro(1);
-
-console.log("Livros na biblioteca após remoção:");
-biblioteca.exibirLivros();
-document.write()
+        if (id && titulo && autor && ano_pub && genero) {
+            const novoLivro = new Livro(id, titulo, autor, ano_pub, genero);
+            biblioteca.adicionarLivro(novoLivro);
+            document.getElementById("book-form").reset();
+        } else {
+            alert("Por favor, preencha todos os campos.");
+        }
+    });
+});

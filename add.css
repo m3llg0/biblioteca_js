@@ -41,7 +41,7 @@ input[type="number"] {
 
 button {
     padding: 10px;
-    background-color: #28a745;
+    background-color: #9028a7;
     color: rgb(249, 244, 244);
     border: none;
     border-radius: 4px;
@@ -51,7 +51,18 @@ button {
 
 
 button:hover {
-    background-color: #218838;
+    background-color: #9028a7;
 } 
 
-
+a {
+    display: block; 
+    width: fit-content; 
+    margin: 10px auto; 
+    padding: 10px;
+    background-color: #ffffff;
+    color: rgb(0, 0, 0);
+    border-radius: 4px;
+    font-size: 16px;
+    text-decoration: none;
+    text-align: center; 
+}
