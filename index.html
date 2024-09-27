@@ -4,17 +4,45 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gerenciamento de Biblioteca</title>
-    <link rel="stylesheet" href="./main.css">
 </head>
 <body>
+    <h1>Gerenciamento de Biblioteca</h1>
+    <h3>Adicionar Livros</h3>
     <div class="container">
-        <h1>Gerenciamento de Biblioteca</h1>
-        <div class="buttons">
-            <a href="adicionar.html" class="button">Adicionar Livros</a>
-            <a href="exibir.html" class="button">Exibir Livros</a>
-            <a href="remover.html" class="button">Remover Livros</a>
+        <div id="form-container" class="hidden">
+            <form id="book-form">
+                <input type="number" id="id" placeholder="Id" />
+                <input type="text" id="titulo" placeholder="Título" />
+                <input type="text" id="autor" placeholder="Autor" />
+                <input type="number" id="ano_pub" placeholder="Ano" />
+                <input type="text" id="genero" placeholder="Gênero" />
+                <button type="submit" class="btnAdd">Adicionar Livro</button>
+            </form>
         </div>
+
         <div id="listaLivros"></div>
+
+        <div class="container">
+            <h3>Lista de Livros</h3>
+            <div id="form-container" class="hidden">
+                <div class="booklist">
+                    <div id="listaLivros"></div>
+                    <button type="submit" class="btnEx">Exibir Livros</button>
+                </div>
+            </div>
+        </div>
+
+        <h3>Remover Livros</h3>
+        <div class="container">
+            <div id="form-container" class="hidden">
+                <form id="book-form">
+                    <input type="number" id="id" placeholder="Id" required>
+                    <button type="submit">Remover Livro</button>
+                </form>
+            </div>
+            <div id="listaLivros"></div>
+        </div>
+
     </div>
     <script src="main.js"></script>
 </body>
